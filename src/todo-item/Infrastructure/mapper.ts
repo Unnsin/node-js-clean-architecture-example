@@ -10,8 +10,9 @@ export class TodoItemMapper
 {
   fromEntity(value: TodoItemEntity): Partial<TodoItemDocument> {
     return {
-      _id: new Types.ObjectId(value.id),
       ...value,
+      _id: new Types.ObjectId(value.id),
+      todoListId: value.todoListId,
       createdAt: new Date(value.createdAt).toISOString(),
       updatedAt: new Date(value.updatedAt).toISOString(),
     };
@@ -22,6 +23,7 @@ export class TodoItemMapper
       id: body._id.toString(),
       title: body.title,
       isComplete: body.isComplete,
+      todoListId: body.todoListId,
       createdAt: new Date(body.createdAt).getTime(),
       updatedAt: new Date(body.updatedAt).getTime(),
     });

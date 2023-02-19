@@ -1,32 +1,32 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
-export class CreateTodoItemDTO {
-  @ApiProperty({ type: String })
+export class CreateTodoListDTO {
   @IsString()
   @IsNotEmpty()
+  @ApiProperty({ type: String })
   title: string;
 
-  @ApiProperty({ type: String })
   @IsString()
-  @IsMongoId()
-  todoListId: string;
+  @IsNotEmpty()
+  @ApiProperty({ type: String })
+  author: string;
 }
 
-export class UpdateTotoItemDTO {
-  @ApiProperty({ type: String })
+export class UpdateTodoListDto {
+  @IsString()
   @IsMongoId()
   @IsNotEmpty()
+  @ApiProperty({ type: String })
   id: string;
 
-  @ApiProperty({ type: String })
   @IsString()
   @IsOptional()
+  @ApiProperty({ type: String })
   title: string;
 
-  @ApiProperty({ type: String })
   @IsString()
-  @IsMongoId()
   @IsOptional()
-  todoListId: string;
+  @ApiProperty({ type: String })
+  author: string;
 }

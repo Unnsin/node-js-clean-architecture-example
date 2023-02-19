@@ -3,6 +3,7 @@ import { BaseEntity } from 'src/common/BaseEntity';
 export class TodoItemEntity extends BaseEntity {
   title: string;
   isComplete: boolean;
+  todoListId: string;
 
   complete() {
     this.title = `Completed: ${this.title}`;

@@ -18,6 +18,6 @@ import { TodoItemController } from './Presentation/todo-item.controller';
     TodoItemService,
   ],
   controllers: [TodoItemController],
-  exports: [],
+  exports: [{ provide: 'TodoItemRepo', useClass: TodoItemRepo }],
 })
 export class TodoItemModule {}

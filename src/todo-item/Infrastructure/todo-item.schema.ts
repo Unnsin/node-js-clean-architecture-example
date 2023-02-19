@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 export type TodoItemDocument = HydratedDocument<TodoItem> & {
   createdAt: string;
@@ -8,6 +8,9 @@ export type TodoItemDocument = HydratedDocument<TodoItem> & {
 
 @Schema({ timestamps: true })
 export class TodoItem {
+  @Prop()
+  todoListId: string;
+
   @Prop()
   title: string;
 
